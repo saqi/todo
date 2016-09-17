@@ -7,7 +7,7 @@
 <html>
 
 <head>
-  <title>My To do list app!</title>
+  <title>Saq's To do list app!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,9 +18,9 @@
 
 <body>
 
-<h1>My to do list!</h1>
+<h1>Saq's to do list!</h1>
 
-<div class="container.fluid tasks">
+<div class="container tasks">
 
 <ul>
     <?php
@@ -31,10 +31,11 @@
 
         foreach($result as $row ){
             echo " <li><div class='row'>
-                        <form action='delete.php' method='post'>
-                            <div class='col-sm-8'><output contenteditable='true' class='output'>" . $row['task'] . "</output></div>
-                            <div class='col-sm-2'><input type='submit' value='Update' name='Update' class='btn btn-warning' /></div>
-                            <div class='col-sm-2'><input type='submit' value='Delete' name='Delete' class='btn btn-danger' /></div>
+                        <form action='Updelete.php' method='post'>
+                            <div class='col-xs-10'><input contenteditable='true' name='text' class='output' value='" . $row['task'] . "' /></div>
+                            <div class='col-xs-1'><input type='submit' value='Update' name='Update' class='btn btn-warning update' /></div>
+                            <div class='col-xs-1'><input type='submit' value='Delete' name='Delete' class='btn btn-danger delete' /></div>
+                            <input type='hidden' name='id' value='" . $row['id'] . "' />
                         </form>
                     </div></li>";
 
@@ -48,8 +49,8 @@
 
     <li><div class='row'>
         <form action="add.php" method="post">
-            <div class='col-sm-10'><input type="text" placeholder="What do you need to do?" required="required" name="text" /></div>
-            <div class='col-sm-2'><input type="submit" value="Add" name="Add" class='btn btn-lg btn-default' /></div>
+            <div class='col-xs-10'><input type="text" id="add" placeholder="What do you need to do?" required="required" name="text" /></div>
+            <div class='col-xs-2'><input type="submit" value="Add" name="Add" class='btn btn-lg btn-default' /></div>
         </form>
     </div></li>
 </ul>
